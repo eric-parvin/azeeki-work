@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ValidateMyInsurance.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AuthenticateEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">info@leeandmason.com</Value>
+    </Setting>
+    <Setting Name="ToSecondaryEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UseInternalSMTP" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="EmailAccountPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LogtoFile" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PathtoLogFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">"C:\ValidateInsuranceTempFiles"</Value>
+    </Setting>
+    <Setting Name="ToPrimaryEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">website@leeandmason.com</Value>
+    </Setting>
+    <Setting Name="FromEmailAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">no-reply@leeandmason.com</Value>
+    </Setting>
+    <Setting Name="PathtoErrorLogFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">"C:\ValidateInsuranceTempFiles\Error\ErrorLog.txt"</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

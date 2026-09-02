@@ -1,0 +1,27 @@
+# =============================================================================
+# ES Metadata Configuration
+#
+# The ES Metadata Framework adds engineering system metadata at the repository or folder level.
+# It supports multiple providers. Learn more: https://aka.ms/esmetadata
+#
+# Providers configured in this file:
+#   - Inventory as Code
+#     Enables accurate issue routing, risk prioritization and code accountability.
+#     It is also used by the 1ES Permission Service to manage repository permissions.
+#     Learn More: https://aka.ms/inventory-as-code
+#     Schema: https://eng.ms/docs/coreai/devdiv/one-engineering-system-1es/1es-docs/product-catalog/inventory-as-code/schema
+#     Permissions: https://eng.ms/docs/more/engineering-tenant-esme/perms/inventory
+#
+# WARNING: Deleting this file will remove inventory for this repository from Inventory-as-Code.
+# This may result in loss of permissions, ownership, and potential repository disablement.
+# =============================================================================
+schemaVersion: 1.0.0
+providers:
+- provider: InventoryAsCode
+  version: 1.0.0
+  metadata:
+    isProduction: false
+    accountableOwners:
+      directOwners:
+      - erparvin@microsoft.com
+      - grschune@microsoft.com
