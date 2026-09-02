@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Longitudinal Survey Analytics Model - Eric Parvin</title>
+<meta name="description" content="A version-aware semantic model enabling valid year-over-year survey comparison despite annual question wording and numbering changes.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="../index.html">Eric Parvin<span>.</span></a>
+    <div class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#work">Case Studies</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<div class="cs-header">
+  <div class="wrap narrow">
+    <div class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#work">Case Studies</a> &rsaquo; Longitudinal survey model</div>
+    <h1>Year-over-year analysis when the questions keep changing</h1>
+    <div class="cs-meta">
+      <span><strong>Client</strong> Academic medical center</span>
+      <span><strong>Role</strong> Semantic model architect</span>
+      <span><strong>Scope</strong> Model design and validation</span>
+    </div>
+  </div>
+</div>
+
+<div class="cs-body">
+  <div class="wrap narrow">
+
+    <h2>Problem</h2>
+    <p>
+      An academic medical center analyzed results from a national annual survey administered to its
+      graduating students. The institution wanted multi-year trend analysis and benchmark comparison
+      against peers.
+    </p>
+    <p>
+      The complication was structural. Every survey cycle, questions were reworded, renumbered,
+      added, retired, or moved between sections. A question that was item 12 one year might be item
+      15 the next, with slightly different phrasing. Sometimes the wording change was cosmetic.
+      Sometimes it altered what was actually being asked.
+    </p>
+    <p>
+      Reporting keyed on question number produced trend lines that silently compared different
+      questions across years. Reporting keyed on question text broke whenever wording shifted. Both
+      approaches looked fine on the surface and were unreliable underneath.
+    </p>
+
+    <div class="callout">
+      <p>
+        This is a modeling problem disguised as a reporting problem. No amount of report-layer
+        cleverness fixes a model that cannot express "this question in 2024 is the same question as
+        that one in 2022."
+      </p>
+    </div>
+
+    <h2>Approach</h2>
+    <p>
+      The model needed to hold two truths at once: the exact form a question took in a given year,
+      and the continuing concept that persists across years.
+    </p>
+    <ul>
+      <li>Separated question <em>concept</em> from question <em>version</em>, so each year's specific
+      wording and numbering was preserved while trend analysis worked against the stable concept.</li>
+      <li>Built version-aware keys uniquely identifying a question as it appeared in a particular
+      cycle, with explicit mapping to its conceptual lineage.</li>
+      <li>Designed conformed dimensions for question groups and sections so navigation stayed
+      consistent even as the survey reorganized.</li>
+      <li>Modeled benchmark mapping separately, since peer comparison data followed its own structure
+      and versioning.</li>
+      <li>Wrote SQL validation queries reconciling report output against source data as a standing
+      practice, not a one-time check.</li>
+    </ul>
+
+    <h2>Solution</h2>
+    <ul>
+      <li>A semantic model with distinct question-version and question-concept structures, letting
+      the same report answer "what did students say in 2024" and "how has this changed since 2019."</li>
+      <li>Rating and response structures handling the survey's various answer scales without
+      collapsing meaningful distinctions.</li>
+      <li>Benchmark mapping enabling peer comparison alongside internal trends.</li>
+      <li>A validation query set proving report figures matched source data &mdash; run as part of each
+      refresh cycle rather than trusted by default.</li>
+      <li>Documentation of which comparisons were analytically valid and which were not, so report
+      consumers understood the limits of the data.</li>
+    </ul>
+
+    <div class="stack">
+      <span>Power BI</span><span>Semantic modeling</span><span>Dimensional design</span>
+      <span>Version-aware keys</span><span>Conformed dimensions</span><span>DAX</span>
+      <span>SQL Server</span><span>Validation queries</span>
+    </div>
+
+    <h2>Outcome</h2>
+    <ul class="outcomes">
+      <li><strong>Longitudinal comparison became defensible.</strong> Trend analysis compared
+      genuinely equivalent questions, and where equivalence did not hold, the model made that
+      visible rather than hiding it.</li>
+      <li><strong>Report figures reconciled to source.</strong> Validation queries gave the team a
+      repeatable way to confirm the numbers, which mattered for analysis informing accreditation and
+      curriculum decisions.</li>
+      <li><strong>The model absorbed future change.</strong> Subsequent survey cycles could be added
+      without restructuring, because versioning was designed in rather than patched around.</li>
+      <li><strong>Analytical limits were documented.</strong> Consumers knew which comparisons the
+      data supported &mdash; as valuable as the comparisons themselves.</li>
+    </ul>
+
+    <p class="note">
+      Client identity withheld. Modeling approach described in general terms; no survey responses,
+      student data, institutional results, or confidential information is represented here.
+    </p>
+
+    <div class="cs-nav">
+      <a href="cross-team-delivery-metrics.html">&larr; Previous: Cross-team delivery metrics</a>
+      <a href="ai-assisted-migration.html">Next: AI-assisted migration assessment &rarr;</a>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>&copy; 2026 Eric Parvin &middot; Charlotte, NC Metro</span>
+    <span><a href="mailto:eric@parvski.com">eric@parvski.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

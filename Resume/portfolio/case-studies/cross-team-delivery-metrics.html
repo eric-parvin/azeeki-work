@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cross-Team Delivery Metrics - Eric Parvin</title>
+<meta name="description" content="Making sprint and release metrics consistent across teams with different workflows, without forcing process standardization.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="../index.html">Eric Parvin<span>.</span></a>
+    <div class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#work">Case Studies</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<div class="cs-header">
+  <div class="wrap narrow">
+    <div class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#work">Case Studies</a> &rsaquo; Cross-team delivery metrics</div>
+    <h1>Making delivery metrics work across teams that work differently</h1>
+    <div class="cs-meta">
+      <span><strong>Client</strong> Global engineering software company</span>
+      <span><strong>Role</strong> Reporting architect</span>
+      <span><strong>Scope</strong> Metrics design and automation</span>
+    </div>
+  </div>
+</div>
+
+<div class="cs-body">
+  <div class="wrap narrow">
+
+    <h2>Problem</h2>
+    <p>
+      The organization wanted consistent delivery metrics across its engineering teams &mdash; sprint
+      commitment, cycle time, release readiness, historical performance. Reasonable ask. The
+      obstacle was subtle enough that it had gone unnoticed for a while.
+    </p>
+    <p>
+      Teams had customized their work-item workflows over years. The same state name meant different
+      things depending on which team you asked. One team's "resolved" meant code complete and awaiting
+      test. Another's meant tested and awaiting release. A third used it for something else entirely.
+    </p>
+    <p>
+      Any report keyed on state names produced numbers that looked authoritative and were quietly
+      wrong. Two teams with identical output could appear wildly different, and leadership had no way
+      to know which comparisons were meaningful.
+    </p>
+    <p>
+      The obvious fix &mdash; standardize workflows across all teams &mdash; was not viable. Those workflows
+      reflected genuine differences in how teams operated, and forcing convergence would have created
+      more disruption than the reporting was worth.
+    </p>
+
+    <div class="callout">
+      <p>
+        The reporting requirement and the autonomy requirement were both legitimate. The design
+        problem was finding a layer where they did not conflict.
+      </p>
+    </div>
+
+    <h2>Approach</h2>
+    <p>
+      The resolution came from a platform detail: teams can define their own states, but every state
+      must map to a fixed set of state <em>categories</em>. Teams control the names; the categories
+      are constant.
+    </p>
+    <ul>
+      <li>Surfaced the ambiguity concretely with edge cases across several teams, so the group could
+      see where existing reports diverged from reality.</li>
+      <li>Facilitated agreement to report on state categories rather than individual state names,
+      preserving team-level workflow freedom.</li>
+      <li>Worked through the definitional cases that matter in practice: what counts as complete,
+      how to treat work finished in development but awaiting downstream steps, and how items moved
+      between sprints should be classified.</li>
+      <li>Proposed supplemental measures for work sitting in intermediate states, with a review
+      threshold framed as a visual reference point rather than a target &mdash; deliberately, so an
+      initial estimate would not harden into a de facto service level.</li>
+    </ul>
+
+    <h2>Solution</h2>
+    <ul>
+      <li>Reporting keyed on normalized state categories, giving organizationally consistent metrics
+      while teams kept their own workflows.</li>
+      <li>A distinction between development-complete work and fully deployed work, with aging
+      analysis for items waiting on build, test, or release.</li>
+      <li>Explicit rules for planned versus unplanned work, including items removed from a sprint and
+      re-added late &mdash; treated as unplanned, since they were no longer part of the active commitment.</li>
+      <li>Automated ingestion from two work-tracking systems into Power BI, replacing manual
+      PowerShell extraction that required regular intervention.</li>
+    </ul>
+
+    <div class="stack">
+      <span>Azure DevOps</span><span>Jira</span><span>State categories</span><span>Power BI</span>
+      <span>Semantic modeling</span><span>Sprint metrics</span><span>Cycle time</span>
+      <span>Flow analysis</span><span>Automated ingestion</span>
+    </div>
+
+    <h2>Outcome</h2>
+    <ul class="outcomes">
+      <li><strong>Consistent metrics without forced standardization.</strong> The organization got
+      comparable measures across teams while every team kept the workflow it needed.</li>
+      <li><strong>Manual extraction eliminated.</strong> Script-based collection was replaced by
+      automated reporting across both work-tracking systems.</li>
+      <li><strong>Better questions became askable.</strong> Aging analysis on development-complete
+      work surfaced bottlenecks between code complete and release that nobody had been measuring.</li>
+      <li><strong>Definitions were documented and agreed.</strong> Metric meaning was settled
+      explicitly rather than left to individual report authors.</li>
+    </ul>
+
+    <p class="note">
+      Client identity withheld. Metrics design described in general terms; no proprietary delivery
+      data, team performance information, or confidential business detail is represented here.
+    </p>
+
+    <div class="cs-nav">
+      <a href="fabric-governance-roadmap.html">&larr; Previous: Governance-first Fabric roadmap</a>
+      <a href="longitudinal-survey-model.html">Next: Longitudinal survey model &rarr;</a>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>&copy; 2026 Eric Parvin &middot; Charlotte, NC Metro</span>
+    <span><a href="mailto:eric@parvski.com">eric@parvski.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

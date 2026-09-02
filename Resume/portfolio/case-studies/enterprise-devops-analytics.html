@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enterprise Engineering Analytics Platform - Eric Parvin</title>
+<meta name="description" content="Consolidating work item and test data across an entire DevOps organization into a single enterprise reporting platform on Microsoft Fabric.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="../index.html">Eric Parvin<span>.</span></a>
+    <div class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#work">Case Studies</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<div class="cs-header">
+  <div class="wrap narrow">
+    <div class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#work">Case Studies</a> &rsaquo; Enterprise engineering analytics</div>
+    <h1>Unifying engineering data across a global audit organization</h1>
+    <div class="cs-meta">
+      <span><strong>Client</strong> Global professional services firm</span>
+      <span><strong>Role</strong> Lead architect, end to end</span>
+      <span><strong>Scope</strong> 300-hour contracted engagement</span>
+    </div>
+  </div>
+</div>
+
+<div class="cs-body">
+  <div class="wrap narrow">
+
+    <h2>Problem</h2>
+    <p>
+      A global audit organization ran its software delivery across dozens of separate Azure DevOps
+      team projects. Each project had its own reporting, which meant every question at the portfolio
+      level required someone to pull several reports and reconcile them by hand.
+    </p>
+    <p>
+      Leadership could not answer basic questions consistently. How much test coverage exists across
+      the program? Where is quality slipping? Which teams are carrying the most unfinished work into
+      the next cycle? The data existed &mdash; it was just fragmented across project boundaries that
+      made sense operationally but not analytically.
+    </p>
+    <p>
+      The existing solution compounded the problem. A legacy SQL Server reporting database was fed by
+      PowerShell extraction scripts that broke regularly and needed manual intervention, run by a
+      team in a different time zone from the people waiting on the data. Reports took over seven
+      hours to refresh end to end, against a stated need for data no more than fifteen minutes old.
+    </p>
+
+    <div class="callout">
+      <p>
+        The real problem was not refresh speed. It was that the organization had no single view of
+        its own delivery and quality data. Refresh time was the symptom people complained about.
+      </p>
+    </div>
+
+    <h2>Approach</h2>
+    <p>
+      I started by separating the two problems: consolidation and performance. Fixing refresh on a
+      fragmented model would have produced fast reports that still could not answer portfolio
+      questions.
+    </p>
+    <ul>
+      <li>Inventoried entities across team projects to establish what work item and test data was
+      genuinely common versus locally customized.</li>
+      <li>Designed a medallion architecture &mdash; raw ingestion, conformed and cleansed, then
+      purpose-built serving layers aligned to how each audience actually consumed the data.</li>
+      <li>Modeled the serving layer around conformed dimensions so that work items, test results,
+      iterations, and teams resolved consistently regardless of which project they originated in.</li>
+      <li>Replaced script-based extraction with governed pipelines, using watermark-based incremental
+      processing so each run handled only what changed.</li>
+      <li>Sized and tuned capacity deliberately, treating compute consumption as a design constraint
+      rather than something to discover after go-live.</li>
+    </ul>
+
+    <h2>Solution</h2>
+    <p>
+      The delivered platform was a Microsoft Fabric data warehouse consolidating work item and test
+      data from across the entire DevOps organization into one enterprise reporting foundation.
+    </p>
+    <ul>
+      <li>Automated ingestion of work item and test entities across all team projects, removing the
+      manual extraction dependency entirely.</li>
+      <li>Medallion-layer pipelines with incremental refresh supporting multiple loads per day.</li>
+      <li>Purpose-built warehouse models serving distinct reporting needs rather than one generic
+      model attempting to satisfy every audience.</li>
+      <li>Power BI semantic models over the warehouse, so report authors worked against governed,
+      conformed data instead of building their own extracts.</li>
+      <li>Capacity optimization that kept consumption within the provisioned tier while supporting
+      the increased refresh cadence.</li>
+    </ul>
+
+    <div class="stack">
+      <span>Microsoft Fabric</span><span>Fabric Warehouse</span><span>Data Factory pipelines</span>
+      <span>Medallion architecture</span><span>Azure DevOps OData</span><span>Power BI</span>
+      <span>Semantic models</span><span>Incremental refresh</span><span>Capacity optimization</span>
+    </div>
+
+    <h2>Outcome</h2>
+    <ul class="outcomes">
+      <li><strong>A single enterprise view.</strong> Delivery, quality, and test coverage became
+      visible across every team project without manual reconciliation &mdash; the outcome the engagement
+      was actually about.</li>
+      <li><strong>Refresh dropped from over 7 hours to 30 minutes.</strong> Reporting moved from
+      overnight batch to near-real-time, meeting the fifteen-minute freshness requirement in
+      practice.</li>
+      <li><strong>A fragile manual process was eliminated.</strong> Scheduled pipeline runs replaced
+      extraction scripts that required regular human intervention and caused downstream delays.</li>
+      <li><strong>The customer expanded the platform.</strong> They planned to onboard ten additional
+      team projects and increase their Fabric capacity &mdash; the clearest signal that the foundation
+      held up.</li>
+    </ul>
+
+    <p>
+      The engagement ran multiple months from architecture through production readiness, delivered
+      under a 300-hour contract.
+    </p>
+
+    <p class="note">
+      Client identity withheld. Architecture and outcomes described in general terms; no proprietary
+      data, code, or confidential business information is represented here.
+    </p>
+
+    <div class="cs-nav">
+      <a href="../index.html#work">&larr; All case studies</a>
+      <a href="fabric-governance-roadmap.html">Next: Governance-first Fabric roadmap &rarr;</a>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>&copy; 2026 Eric Parvin &middot; Charlotte, NC Metro</span>
+    <span><a href="mailto:eric@parvski.com">eric@parvski.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

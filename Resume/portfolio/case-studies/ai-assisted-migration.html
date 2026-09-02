@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-Assisted Migration Assessment - Eric Parvin</title>
+<meta name="description" content="Custom GitHub Copilot agent skills that compress BI migration assessment from weeks of manual analysis into days.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="../index.html">Eric Parvin<span>.</span></a>
+    <div class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#work">Case Studies</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<div class="cs-header">
+  <div class="wrap narrow">
+    <div class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#work">Case Studies</a> &rsaquo; AI-assisted migration assessment</div>
+    <h1>Custom agent skills that compress migration assessment</h1>
+    <div class="cs-meta">
+      <span><strong>Context</strong> Reusable methodology across engagements</span>
+      <span><strong>Role</strong> Author and practitioner</span>
+      <span><strong>Scope</strong> Internal tooling and delivery method</span>
+    </div>
+  </div>
+</div>
+
+<div class="cs-body">
+  <div class="wrap narrow">
+
+    <h2>Problem</h2>
+    <p>
+      BI platform migrations start with assessment, and assessment is where they stall. Before anyone
+      can estimate a Tableau-to-Power BI migration, someone has to inventory the existing reports,
+      trace data sources and dependencies, understand the business logic embedded in calculations,
+      identify which reports are actively used versus abandoned, and judge conversion complexity.
+    </p>
+    <p>
+      Done manually across a few hundred reports, this takes weeks. It is repetitive, it is
+      inconsistent between analysts, and it is the part of the engagement where customers lose
+      patience &mdash; because they are paying for analysis before seeing anything built.
+    </p>
+    <p>
+      Worse, the output quality depends heavily on who did it. Two analysts assessing the same estate
+      routinely produce different complexity ratings and effort estimates, which undermines
+      confidence in the plan that follows.
+    </p>
+
+    <div class="callout">
+      <p>
+        Repetitive, rule-governed analysis that produces inconsistent results depending on who
+        performs it is precisely the shape of problem automation handles well &mdash; provided a human
+        still reviews what comes out.
+      </p>
+    </div>
+
+    <h2>Approach</h2>
+    <p>
+      Rather than using AI ad hoc, I encoded the assessment methodology itself into reusable agent
+      skills &mdash; so the process runs consistently regardless of who invokes it.
+    </p>
+    <ul>
+      <li>Wrote custom agent skills capturing assessment steps as explicit, repeatable instructions
+      rather than prompts retyped from memory each time.</li>
+      <li>Built reusable prompt and instruction libraries so analysis followed a defined sequence with
+      defined outputs.</li>
+      <li>Connected agent tooling to the systems holding the artifacts, so analysis ran against actual
+      report definitions and model metadata rather than descriptions of them.</li>
+      <li>Used agentic patterns to inspect and validate semantic models and report definitions
+      programmatically.</li>
+      <li>Built human review into the workflow at defined checkpoints &mdash; the agent produces analysis,
+      a person validates it before it informs any customer commitment.</li>
+    </ul>
+
+    <h2>Solution</h2>
+    <p>
+      A working set of skills and libraries covering the analysis-heavy phases of migration and
+      modernization work.
+    </p>
+    <ul>
+      <li><strong>Migration assessment.</strong> Automated inventory, dependency analysis, and
+      complexity scoring of source reports, with extraction of embedded business logic.</li>
+      <li><strong>Semantic model review.</strong> Structured evaluation against modeling best
+      practice, surfacing relationship problems, ambiguous grain, and AI-readiness gaps.</li>
+      <li><strong>Report conversion analysis.</strong> Feature-level mapping between source and target
+      platforms, flagging constructs with no clean equivalent.</li>
+      <li><strong>Application modernization assessment.</strong> The same pattern applied to legacy
+      .NET portfolios for scoping and risk identification.</li>
+    </ul>
+
+    <div class="stack">
+      <span>GitHub Copilot</span><span>Agent mode</span><span>Copilot CLI</span>
+      <span>Custom agent skills</span><span>Prompt libraries</span><span>MCP tooling</span>
+      <span>Power BI Modeling MCP</span><span>Semantic model analysis</span><span>Responsible AI</span>
+    </div>
+
+    <h2>Outcome</h2>
+    <ul class="outcomes">
+      <li><strong>Weeks of assessment became days.</strong> Inventory and analysis work that
+      previously consumed the opening phase of an engagement compressed substantially.</li>
+      <li><strong>Output became consistent.</strong> Encoding methodology into skills removed most of
+      the variance between analysts assessing the same estate.</li>
+      <li><strong>Customers saw progress sooner.</strong> Shorter assessment meant reaching
+      demonstrable build work earlier, which changed the tone of engagements.</li>
+      <li><strong>Reusable across engagements.</strong> The skills carried forward rather than being
+      rebuilt each time, and improved with each application.</li>
+      <li><strong>Human judgment stayed in the loop.</strong> Every output is reviewed before
+      informing a customer commitment. Speed came from automating analysis, not from removing
+      accountability.</li>
+    </ul>
+
+    <p class="note">
+      Methodology described in general terms. No client data, proprietary code, or confidential
+      information is represented here. Any tooling referenced would be rebuilt independently for
+      commercial engagements.
+    </p>
+
+    <div class="cs-nav">
+      <a href="longitudinal-survey-model.html">&larr; Previous: Longitudinal survey model</a>
+      <a href="technical-enablement.html">Next: Technical enablement &rarr;</a>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>&copy; 2026 Eric Parvin &middot; Charlotte, NC Metro</span>
+    <span><a href="mailto:eric@parvski.com">eric@parvski.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

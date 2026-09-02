@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Governance-First Fabric Roadmap - Eric Parvin</title>
+<meta name="description" content="A phased Microsoft Fabric adoption roadmap covering tenant strategy, capacity, security, and modernization sequencing for a university foundation.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="../index.html">Eric Parvin<span>.</span></a>
+    <div class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#work">Case Studies</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<div class="cs-header">
+  <div class="wrap narrow">
+    <div class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#work">Case Studies</a> &rsaquo; Governance-first Fabric roadmap</div>
+    <h1>A governance-first Fabric roadmap for a university foundation</h1>
+    <div class="cs-meta">
+      <span><strong>Client</strong> University foundation</span>
+      <span><strong>Role</strong> Architect and advisor</span>
+      <span><strong>Scope</strong> Adoption planning and proof of concept</span>
+    </div>
+  </div>
+</div>
+
+<div class="cs-body">
+  <div class="wrap narrow">
+
+    <h2>Problem</h2>
+    <p>
+      The foundation had decided to adopt Microsoft Fabric but had no plan for getting there. They
+      had a mix of legacy paginated reports, aging ETL processes, a constituent management system
+      they needed to coexist with, and a small team that would have to run whatever got built.
+    </p>
+    <p>
+      The risk was familiar: start building, discover governance problems late, and end up with an
+      expensive platform that nobody trusts and nobody clearly owns. Capacity sizing, workspace
+      structure, and access control decisions made casually in month one become very difficult to
+      unwind in month twelve.
+    </p>
+
+    <div class="callout">
+      <p>
+        Adoption failures are rarely technical. They happen when sequencing, ownership, and
+        governance decisions get deferred until after the platform is already in use.
+      </p>
+    </div>
+
+    <h2>Approach</h2>
+    <p>
+      I put governance first &mdash; not as a compliance exercise, but because those decisions constrain
+      everything built afterward.
+    </p>
+    <ul>
+      <li>Ran discovery across current-state reporting, data sources, integration points, team
+      capability, and the operating model they realistically could sustain.</li>
+      <li>Built a phased 30-60-90 roadmap with a prioritized backlog, explicit sequencing,
+      dependencies, and named decision points rather than an undifferentiated task list.</li>
+      <li>Separated foundation work that had to happen first &mdash; tenant configuration, capacity
+      strategy, workspace topology, identity and access &mdash; from workload delivery that could proceed
+      in parallel once the foundation was set.</li>
+      <li>Identified a narrow, high-visibility proof of concept to prove platform value early and
+      build internal support for the larger investment.</li>
+    </ul>
+
+    <h2>Solution</h2>
+    <p>
+      The roadmap covered platform foundation, workload delivery, and operating model, with status
+      tracked against the backlog in recurring reviews.
+    </p>
+    <ul>
+      <li><strong>Foundation.</strong> Tenant settings, capacity strategy and sizing, workspace
+      design, identity and access controls, lifecycle management, and monitoring.</li>
+      <li><strong>Workloads.</strong> Semantic model design, legacy paginated report migration
+      assessment, ETL modernization from existing processes, and a coexistence strategy for the
+      constituent system.</li>
+      <li><strong>Operating model.</strong> CI/CD with source control and approval gates, cataloging
+      and data protection controls, and a self-service model defining what business users could do
+      independently versus what stayed centrally governed.</li>
+    </ul>
+
+    <p>
+      The proof of concept addressed a real gap: staff needed to record constituent interactions from
+      mobile devices, and were using separate software to do it. I built a Power BI report with
+      write-back to a Fabric SQL database using Python user-defined functions, letting staff submit
+      data directly from a mobile-optimized report into governed storage.
+    </p>
+
+    <div class="stack">
+      <span>Microsoft Fabric</span><span>Fabric SQL</span><span>Power BI</span><span>Write-back</span>
+      <span>Python UDFs</span><span>Capacity planning</span><span>Workspace governance</span>
+      <span>Deployment pipelines</span><span>Data protection</span>
+    </div>
+
+    <h2>Outcome</h2>
+    <ul class="outcomes">
+      <li><strong>The proof of concept drove a production capacity purchase.</strong> The write-back
+      demonstration became the primary reason the customer stood up their first paid Fabric capacity.</li>
+      <li><strong>A sequenced plan replaced an open-ended wish list.</strong> Stakeholders could see
+      what came first, what depended on what, and which decisions were still outstanding.</li>
+      <li><strong>Governance decisions were made deliberately, before scale.</strong> Capacity,
+      workspace structure, and access model were settled while they were still cheap to change.</li>
+      <li><strong>A reusable framework.</strong> The planning structure and sequencing approach
+      carried forward into later engagements.</li>
+    </ul>
+
+    <p class="note">
+      Client identity withheld. Approach and outcomes described in general terms; no proprietary
+      data, constituent information, or confidential business detail is represented here.
+    </p>
+
+    <div class="cs-nav">
+      <a href="enterprise-devops-analytics.html">&larr; Previous: Enterprise engineering analytics</a>
+      <a href="cross-team-delivery-metrics.html">Next: Cross-team delivery metrics &rarr;</a>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>&copy; 2026 Eric Parvin &middot; Charlotte, NC Metro</span>
+    <span><a href="mailto:eric@parvski.com">eric@parvski.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
