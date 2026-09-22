@@ -8,5 +8,6 @@
         "~/.claude/skills": true,
         "C:\\_Repo\\_Toolshed\\Power-BI\\Agentic-Development\\Tableau-Migration\\.github\\skills": true,
         "~/.vscode/extensions/synapsevscode.synapse-1.25.0/copilot/skills": true
-    }
+    },
+    "dotnet.preferCSharpExtension": true
 }
